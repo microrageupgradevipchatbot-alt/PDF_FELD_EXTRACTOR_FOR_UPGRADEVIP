@@ -11,13 +11,13 @@ import os
 import json
 from dotenv import load_dotenv
 import google.generativeai as genai
+import streamlit as st
 
 load_dotenv()
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY") or os.getenv("GOOGLE_API")
+GOOGLE_API_KEY = st.secrets.get("GOOGLE_API_KEY") or os.getenv("GOOGLE_API_KEY") or os.getenv("GOOGLE_API")
 
 if not GOOGLE_API_KEY:
-    raise RuntimeError("Please set GOOGLE_API_KEY in your environment (or .env).")
-
+    raise RuntimeError("Please set GOOGLE_API_KEY in Streamlit secrets or your environment.")
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # choose a vision-capable Gemini model name available in your environment.
