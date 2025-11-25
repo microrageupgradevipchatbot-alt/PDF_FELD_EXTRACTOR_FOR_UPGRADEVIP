@@ -22,7 +22,7 @@ genai.configure(api_key=GOOGLE_API_KEY)
 
 # choose a vision-capable Gemini model name available in your environment.
 # If your environment requires a different identifier, change this value.
-MODEL_NAME = "gemini-2.0-flash"  # adjust if you use a different vision model
+MODEL_NAME = "gemini-2.5-pro"  # adjust if you use a different vision model
 
 
 def get_model():
